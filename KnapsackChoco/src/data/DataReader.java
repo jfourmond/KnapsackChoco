@@ -12,6 +12,7 @@ public class DataReader {
 	private int capacity;
 	private List<Integer> profits;
 	private List<Integer> weights;
+	private int nbItems;
 	
 	private File fileWeight;
 	private File fileProfit;
@@ -41,11 +42,23 @@ public class DataReader {
 	
 	public List<Integer> getProfits() { return profits; }
 	
-	public Integer[] getProfitsTab() { return (Integer[]) profits.toArray(); }
+	public int[] getProfitsTab() {
+		int[] tab = new int[nbItems];
+		for(int i=0 ; i<nbItems ; i++)
+			tab[i] = profits.get(i);
+		return tab;
+	}
 	
 	public List<Integer> getWeights() { return weights; }
 	
-	public Integer[] getWeightsTab() { return (Integer[]) weights.toArray(); }
+	public int[] getWeightsTab() {
+		int[] tab = new int[nbItems];
+		for(int i=0 ; i<nbItems ; i++)
+			tab[i] = weights.get(i);
+		return tab;
+	}
+	
+	public int getNbItems() { return nbItems; }
 	
 	//	METHODES
 	private void readWeight() throws IOException {
@@ -81,5 +94,6 @@ public class DataReader {
 	private void validate() throws DataReaderException {
 		if(profits.size() != weights.size())
 			throw new DataReaderException("Les fichiers ne contiennent pas le même nombre de valeur.");
+		nbItems = weights.size();
 	}
 }
