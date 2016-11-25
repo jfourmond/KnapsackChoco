@@ -17,3 +17,7 @@ Framework :
 - [Choco](http://www.choco-solver.org/)
 
 ---
+
+## Données
+
+Les données utilisées proviennent du site suivant : [http://people.sc.fsu.edu/~jburkardt/datasets/knapsack_01/knapsack_01.html](http://people.sc.fsu.edu/~jburkardt/datasets/knapsack_01/knapsack_01.html)
