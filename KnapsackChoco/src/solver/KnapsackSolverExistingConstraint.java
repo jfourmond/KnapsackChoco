@@ -4,22 +4,9 @@ import org.chocosolver.solver.Model;
 import org.chocosolver.solver.Solver;
 import org.chocosolver.solver.variables.IntVar;
 
-public class KnapsackSolverExistingConstraint {
-
-	private int capacity;
-	private int[] weights;
-	private int[] profits;
-
-	private int n;
-
-	Model model;
-
+public class KnapsackSolverExistingConstraint extends KnapsackSolver {
 	public KnapsackSolverExistingConstraint(int _nbItems, int _capacity, int[] _weights, int[] _profits) {
-
-		this.capacity = _capacity;
-		this.weights = _weights;
-		this.profits = _profits;
-		this.n = _nbItems;
+		super(_nbItems, _capacity, _weights, _profits);
 	}
 
 	public void solve() {

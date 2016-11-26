@@ -34,6 +34,7 @@ public class DataReader {
 		System.out.println("Capacité : " + capacity);
 		
 		validate();
+		System.out.println("Items : " + nbItems);
 		System.out.println("Données validées.");
 	}
 	

@@ -4,22 +4,10 @@ import org.chocosolver.solver.Model;
 import org.chocosolver.solver.Solver;
 import org.chocosolver.solver.variables.IntVar;
 
-public class KnapsackSolverDefaultStrategy {
-
-	private int capacity;
-	private int[] weights;
-	private int[] profits;
-
-	private int n;
-
-	private Model model;
+public class KnapsackSolverDefaultStrategy extends KnapsackSolver {
 
 	public KnapsackSolverDefaultStrategy(int nbItems, int capacity, int[] weights, int[] profits) {
-
-		this.capacity = capacity;
-		this.weights = weights;
-		this.profits = profits;
-		this.n = nbItems;
+		super(nbItems, capacity, weights, profits);
 	}
 
 	public void solve() {
