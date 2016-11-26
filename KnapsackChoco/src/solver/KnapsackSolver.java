@@ -2,12 +2,16 @@ package solver;
 
 import org.chocosolver.solver.Model;
 
+/**
+ * Classe abstraite avec pour attribut la capacité du sac, le nombre d'items, le poids de chaque items
+ *  et le profit de chaque item
+ */
 public abstract class KnapsackSolver {
 	protected int capacity;
 	protected int[] weights;
 	protected int[] profits;
 	
-	protected int n;
+	protected int nbItems;
 	
 	protected Model model;
 	
@@ -15,8 +19,11 @@ public abstract class KnapsackSolver {
 		this.capacity = capacity;
 		this.weights = weights;
 		this.profits = profits;
-		this.n = nbItems;
+		this.nbItems = nbItems;
 	}
 	
+	/**
+	 * Création du modèle et résolution du problème
+	 */
 	public abstract void solve();
 }

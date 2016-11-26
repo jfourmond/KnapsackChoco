@@ -13,12 +13,12 @@ public class KnapsackSolverDefaultStrategy extends KnapsackSolver {
 	public void solve() {
 		model = new Model("KNAPSACK PROBLEM WITH DEFAULT STRATEGY");
 
-		IntVar profit = model.intVar("v_" + n, 0, 9999, true);
-		IntVar weight = model.intVar("v_" + n, 0, 9999, true);
+		IntVar profit = model.intVar("v_" + nbItems, 0, 9999, true);
+		IntVar weight = model.intVar("v_" + nbItems, 0, 9999, true);
 
-		IntVar[] objects = new IntVar[n];
+		IntVar[] objects = new IntVar[nbItems];
 
-		for (int i = 0; i < n; i++) {
+		for (int i = 0; i < nbItems; i++) {
 			objects[i] = model.intVar("v_" + i, 0, 1, false);
 		}
 		model.scalar(objects, weights, "=", weight).post();
@@ -38,8 +38,8 @@ public class KnapsackSolverDefaultStrategy extends KnapsackSolver {
 			solver.printStatistics();
 			solver.showSolutions();
 
-			System.out.println("Power : " + profit.getValue());
-			System.out.println("Volume : " + weight.getValue());
+			System.out.println("Profit : " + profit.getValue());
+			System.out.println("Weight : " + weight.getValue());
 		}
 	}
 }

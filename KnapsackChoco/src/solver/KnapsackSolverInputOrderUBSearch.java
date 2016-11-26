@@ -5,6 +5,10 @@ import org.chocosolver.solver.Solver;
 import org.chocosolver.solver.search.strategy.Search;
 import org.chocosolver.solver.variables.IntVar;
 
+/**
+ * Sous-Classe de {@link KnapsackSolver} ayant pour méthode de résolution une recherche Input Order Upper Bound Search :
+ *  initialisant les variables à leur maximum (ici : 1)
+ */
 public class KnapsackSolverInputOrderUBSearch extends KnapsackSolver {
 
 	public KnapsackSolverInputOrderUBSearch(int nbItems, int capacity, int[] weights, int[] profits) {
@@ -13,14 +17,14 @@ public class KnapsackSolverInputOrderUBSearch extends KnapsackSolver {
 
 	@Override
 	public void solve() {
-		model = new Model("KNAPSACK PROBLEM");
+		model = new Model("KNAPSACK PROBLEM INPUT ORDER UPPER BOUND SEARCH");
 
-		IntVar profit = model.intVar("v_" + n, 0, 9999, true);
-		IntVar weight = model.intVar("v_" + n, 0, 9999, true);
+		IntVar profit = model.intVar("v_" + nbItems, 0, 9999, true);
+		IntVar weight = model.intVar("v_" + nbItems, 0, 9999, true);
 		
-		IntVar[] objects = new IntVar[n];
+		IntVar[] objects = new IntVar[nbItems];
 		
-		for (int i = 0; i < n; i++) {
+		for (int i = 0; i < nbItems; i++) {
 			objects[i] = model.intVar("v_" + i, 0, 1, false);
 		}
 		model.scalar(objects, weights, "=", weight).post();
@@ -42,8 +46,8 @@ public class KnapsackSolverInputOrderUBSearch extends KnapsackSolver {
 			solver.printStatistics();
 			solver.showSolutions();
 			
-			System.out.println("Power : " + profit.getValue());
-			System.out.println("Volume : " + weight.getValue());
+			System.out.println("Profit : " + profit.getValue());
+			System.out.println("Weight : " + weight.getValue());
 		}
 	}
 
