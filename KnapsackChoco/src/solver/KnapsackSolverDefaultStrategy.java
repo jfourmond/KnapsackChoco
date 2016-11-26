@@ -4,6 +4,10 @@ import org.chocosolver.solver.Model;
 import org.chocosolver.solver.Solver;
 import org.chocosolver.solver.variables.IntVar;
 
+/**
+ * Sous-classe de {@link KnapsackSolver} n'utilisant pas de méthode de résolution particulière
+ * si ce n'est la méthode par défaut
+ */
 public class KnapsackSolverDefaultStrategy extends KnapsackSolver {
 
 	public KnapsackSolverDefaultStrategy(int nbItems, int capacity, int[] weights, int[] profits) {

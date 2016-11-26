@@ -4,6 +4,10 @@ import org.chocosolver.solver.Model;
 import org.chocosolver.solver.Solver;
 import org.chocosolver.solver.variables.IntVar;
 
+/**
+ * Sous-classe de {@link KnapsackSolver} utilisant les contraintes par défaut de Choco
+ * par la méthode knapsack du {@link Solver}
+ */
 public class KnapsackSolverExistingConstraint extends KnapsackSolver {
 	public KnapsackSolverExistingConstraint(int _nbItems, int _capacity, int[] _weights, int[] _profits) {
 		super(_nbItems, _capacity, _weights, _profits);
@@ -34,8 +38,8 @@ public class KnapsackSolverExistingConstraint extends KnapsackSolver {
 			solver.printStatistics();
 			solver.showSolutions();
 
-			System.out.println("Power : " + profitSum.getValue());
-			System.out.println("Volume : " + weightSum.getValue());
+			System.out.println("Profit : " + profitSum.getValue());
+			System.out.println("Weight : " + weightSum.getValue());
 		}
 	}
 }
