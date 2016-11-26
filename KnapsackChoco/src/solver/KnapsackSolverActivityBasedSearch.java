@@ -4,20 +4,19 @@ import org.chocosolver.solver.Model;
 import org.chocosolver.solver.Solver;
 import org.chocosolver.solver.search.strategy.Search;
 import org.chocosolver.solver.variables.IntVar;
-
 /**
- * Sous-Classe de {@link KnapsackSolver} ayant pour méthode de résolution une recherche Input Order Upper Bound Search :
- *  initialisant les variables à leur maximum (ici : 1)
+ * Sous-classe de {@link KnapsackSolver} ayant pour méthode de résolution une recherche
+ * "Activity-Based Search for Black-Box Constraint Propagramming Solver", Laurent Michel and Pascal Van Hentenryck, CPAIOR12. 
  */
-public class KnapsackSolverInputOrderUBSearch extends KnapsackSolver {
+public class KnapsackSolverActivityBasedSearch extends KnapsackSolver {
 
-	public KnapsackSolverInputOrderUBSearch(int nbItems, int capacity, int[] weights, int[] profits) {
+	public KnapsackSolverActivityBasedSearch(int nbItems, int capacity, int[] weights, int[] profits) {
 		super(nbItems, capacity, weights, profits);
 	}
 
 	@Override
 	public void solve() {
-		model = new Model("KNAPSACK PROBLEM INPUT ORDER UPPER BOUND SEARCH");
+		model = new Model("KNAPSACK PROBLEM ACTIVITY BASED SEARCH");
 
 		IntVar profit = model.intVar("v_" + nbItems, 0, 9999, true);
 		IntVar weight = model.intVar("v_" + nbItems, 0, 9999, true);
@@ -35,7 +34,9 @@ public class KnapsackSolverInputOrderUBSearch extends KnapsackSolver {
 		model.addHook("obj", profit);
 		
 		Solver solver = model.getSolver();
-		solver.setSearch(Search.inputOrderUBSearch(objects));
+		solver.setSearch(Search.activityBasedSearch(objects));
+//		 solver.setSearch(Search.intVarSearch(objects)); // Power : 222 - Volume : 150
+//		 solver.setSearch(Search.randomSearch(objects, System.currentTimeMillis())); // RANDOM
 		
 		if (solver.solve()) {
 			for (int i = 0; i < objects.length; i++)
