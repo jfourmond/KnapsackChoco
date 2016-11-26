@@ -35,7 +35,7 @@ public class DataReader {
 		
 		validate();
 		System.out.println("Items : " + nbItems);
-		System.out.println("Données validées.");
+		System.out.println("Données des fichiers " + fileWeight.getName() + ", " + fileProfit.getName() + ", " + fileCapacity.getName() + " validées.");
 	}
 	
 	//	GETTERS
