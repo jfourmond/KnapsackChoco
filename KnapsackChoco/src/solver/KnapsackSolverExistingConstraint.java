@@ -20,7 +20,7 @@ public class KnapsackSolverExistingConstraint extends KnapsackSolver {
 		}
 
 		IntVar weightSum = model.intVar(0, this.capacity, true);
-		IntVar profitSum = model.intVar(0, 920);
+		IntVar profitSum = model.intVar(0, MAX);
 
 		model.knapsack(occurences, weightSum, profitSum, this.weights, this.profits).post();
 

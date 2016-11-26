@@ -13,8 +13,8 @@ public class KnapsackSolverDefaultStrategy extends KnapsackSolver {
 	public void solve() {
 		model = new Model("KNAPSACK PROBLEM WITH DEFAULT STRATEGY");
 
-		IntVar profit = model.intVar("v_" + nbItems, 0, 9999, true);
-		IntVar weight = model.intVar("v_" + nbItems, 0, 9999, true);
+		IntVar profit = model.intVar("v_" + nbItems, 0, MAX, true);
+		IntVar weight = model.intVar("v_" + nbItems, 0, MAX, true);
 
 		IntVar[] objects = new IntVar[nbItems];
 

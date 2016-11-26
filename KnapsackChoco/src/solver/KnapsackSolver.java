@@ -7,6 +7,8 @@ import org.chocosolver.solver.Model;
  *  et le profit de chaque item
  */
 public abstract class KnapsackSolver {
+	protected final static int MAX = 100000000;
+	
 	protected int capacity;
 	protected int[] weights;
 	protected int[] profits;
