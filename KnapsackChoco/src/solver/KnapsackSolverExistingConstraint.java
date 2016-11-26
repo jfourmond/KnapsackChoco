@@ -42,12 +42,14 @@ public class KnapsackSolverExistingConstraint {
 
 		if (solver.solve()) {
 
-			System.out.println("weightSum : " + weightSum.getValue());
-
-			for (int i = 0; i < this.n; i++) {
+			for (int i = 0; i < this.n; i++)
 				System.out.println(occurences[i].getValue());
-			}
+
+			solver.printStatistics();
+			solver.showSolutions();
+
+			System.out.println("Power : " + energySum.getValue());
+			System.out.println("Volume : " + weightSum.getValue());
 		}
 	}
-
 }
