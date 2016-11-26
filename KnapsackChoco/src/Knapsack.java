@@ -3,6 +3,7 @@ import java.io.IOException;
 import data.DataReader;
 import data.DataReaderException;
 import solver.KnapsackSolver;
+import solver.KnapsackSolverActivityBasedSearch;
 import solver.KnapsackSolverDefaultStrategy;
 import solver.KnapsackSolverExistingConstraint;
 import solver.KnapsackSolverInputOrderUBSearch;
@@ -45,19 +46,20 @@ public class Knapsack {
 		}
 
 		System.out.println("\nWith KnapsackSolverInputOrderUBSearch");
-		KnapsackSolver solver = new KnapsackSolverInputOrderUBSearch(data.getNbItems(), data.getCapacity(), data.getWeightsTab(),
-				data.getProfitsTab());
+		KnapsackSolver solver = new KnapsackSolverInputOrderUBSearch(data.getNbItems(), data.getCapacity(), data.getWeightsTab(), data.getProfitsTab());
 		solver.solve();
 
 		System.out.println("\nWith KnapsackSolverDefaultStrategy");
-		KnapsackSolver solver2 = new KnapsackSolverDefaultStrategy(data.getNbItems(), data.getCapacity(),
-				data.getWeightsTab(), data.getProfitsTab());
+		KnapsackSolver solver2 = new KnapsackSolverDefaultStrategy(data.getNbItems(), data.getCapacity(), data.getWeightsTab(), data.getProfitsTab());
 		solver2.solve();
 
 		System.out.println("\nWith KnapsackSolverExistingConstraint");
-		KnapsackSolver solver3 = new KnapsackSolverExistingConstraint(data.getNbItems(),
-				data.getCapacity(), data.getWeightsTab(), data.getProfitsTab());
+		KnapsackSolver solver3 = new KnapsackSolverExistingConstraint(data.getNbItems(), data.getCapacity(), data.getWeightsTab(), data.getProfitsTab());
 		solver3.solve();
+		
+		System.out.println("\nWith KnapsackSolverActivityBasedSearch");
+		KnapsackSolver solver4 = new KnapsackSolverActivityBasedSearch(data.getNbItems(), data.getCapacity(), data.getWeightsTab(), data.getProfitsTab());
+		solver4.solve();
 	}
 
 }
