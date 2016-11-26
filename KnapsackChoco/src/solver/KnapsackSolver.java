@@ -40,10 +40,10 @@ public class KnapsackSolver {
 		model.addHook("obj", profit);
 		
 		Solver solver = model.getSolver();
-		// solver.setSearch(Search.activityBasedSearch(objects)); // Power : 251 - Volume : 153
+//		 solver.setSearch(Search.activityBasedSearch(objects)); // Power : 251 - Volume : 153
 		solver.setSearch(Search.inputOrderUBSearch(objects)); // Power : 309 - Volume : 165
-		// solver.setSearch(Search.intVarSearch(objects)); // Power : 222 - Volume : 150
-		// solver.setSearch(Search.randomSearch(objects, System.currentTimeMillis())); // RANDOM
+//		 solver.setSearch(Search.intVarSearch(objects)); // Power : 222 - Volume : 150
+//		 solver.setSearch(Search.randomSearch(objects, System.currentTimeMillis())); // RANDOM
 		
 		if (solver.solve()) {
 			for (int i = 0; i < objects.length; i++)
