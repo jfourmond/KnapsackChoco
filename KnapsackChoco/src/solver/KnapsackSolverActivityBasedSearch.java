@@ -35,8 +35,6 @@ public class KnapsackSolverActivityBasedSearch extends KnapsackSolver {
 		
 		Solver solver = model.getSolver();
 		solver.setSearch(Search.activityBasedSearch(objects));
-//		 solver.setSearch(Search.intVarSearch(objects)); // Power : 222 - Volume : 150
-//		 solver.setSearch(Search.randomSearch(objects, System.currentTimeMillis())); // RANDOM
 		
 		if (solver.solve()) {
 			for (int i = 0; i < objects.length; i++)

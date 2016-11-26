@@ -2,18 +2,12 @@ import java.io.IOException;
 
 import data.DataReader;
 import data.DataReaderException;
-import solver.KnapsackSolver;
-import solver.KnapsackSolverActivityBasedSearch;
-import solver.KnapsackSolverDefaultStrategy;
-import solver.KnapsackSolverExistingConstraint;
-import solver.KnapsackSolverInputOrderUBSearch;
+import solver.*;
 
 public class Knapsack {
 
 	public static void main(String[] args) {
-
 		DataReader data = null;
-
 		try {
 			// p01
 			// data = new DataReader("data/p01/p01_w.txt", "data/p01/p01_p.txt", "data/p01/p01_c.txt");
@@ -37,8 +31,7 @@ public class Knapsack {
 			// data = new DataReader("data/p07/p07_w.txt", "data/p07/p07_p.txt", "data/p07/p07_c.txt");
 			
 			// p08 : Max profit : 13549094
-			 data = new DataReader("data/p08/p08_w.txt", "data/p08/p08_p.txt", "data/p08/p08_c.txt");
-
+			data = new DataReader("data/p08/p08_w.txt", "data/p08/p08_p.txt", "data/p08/p08_c.txt");
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (DataReaderException e) {
