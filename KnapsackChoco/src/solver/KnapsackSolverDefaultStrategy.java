@@ -36,8 +36,8 @@ public class KnapsackSolverDefaultStrategy extends KnapsackSolver {
 
 		if (solver.solve()) {
 
-			for (int i = 0; i < objects.length; i++)
-				System.out.println(objects[i]);
+//			for (int i = 0; i < objects.length; i++)
+//				System.out.println(objects[i]);
 
 			solver.printStatistics();
 			solver.showSolutions();

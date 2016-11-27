@@ -32,8 +32,9 @@ public class KnapsackSolverExistingConstraint extends KnapsackSolver {
 		Solver solver = model.getSolver();
 
 		if (solver.solve()) {
-			for (int i = 0; i < this.nbItems; i++)
-				System.out.println(occurences[i].getValue());
+			
+//			for (int i = 0; i < this.nbItems; i++)
+//				System.out.println(occurences[i].getValue());
 
 			solver.printStatistics();
 			solver.showSolutions();
