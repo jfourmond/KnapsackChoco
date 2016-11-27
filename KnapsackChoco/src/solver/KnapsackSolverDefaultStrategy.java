@@ -34,7 +34,8 @@ public class KnapsackSolverDefaultStrategy extends KnapsackSolver {
 
 		Solver solver = model.getSolver();
 
-		if (solver.solve()) {
+//		if (solver.solve()) {
+		while(solver.solve()){
 
 //			for (int i = 0; i < objects.length; i++)
 //				System.out.println(objects[i]);

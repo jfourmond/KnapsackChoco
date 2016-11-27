@@ -38,7 +38,8 @@ public class KnapsackSolverMinDomLBSearch extends KnapsackSolver {
 		Solver solver = model.getSolver();
 		solver.setSearch(Search.minDomLBSearch(objects));
 
-		if (solver.solve()) {
+		// if (solver.solve()) {
+		while (solver.solve()) {
 
 			// for (int i = 0; i < objects.length; i++)
 			// System.out.println(objects[i]);

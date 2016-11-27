@@ -5,8 +5,8 @@ import org.chocosolver.solver.Solver;
 import org.chocosolver.solver.variables.IntVar;
 
 /**
- * Sous-classe de {@link KnapsackSolver} utilisant les contraintes par défaut de Choco
- * par la méthode knapsack du {@link Solver}
+ * Sous-classe de {@link KnapsackSolver} utilisant les contraintes par défaut de
+ * Choco par la méthode knapsack du {@link Solver}
  */
 public class KnapsackSolverExistingConstraint extends KnapsackSolver {
 	public KnapsackSolverExistingConstraint(int _nbItems, int _capacity, int[] _weights, int[] _profits) {
@@ -31,10 +31,11 @@ public class KnapsackSolverExistingConstraint extends KnapsackSolver {
 		// 2. Solving part
 		Solver solver = model.getSolver();
 
-		if (solver.solve()) {
-			
-//			for (int i = 0; i < this.nbItems; i++)
-//				System.out.println(occurences[i].getValue());
+		// if (solver.solve()) {
+		while (solver.solve()) {
+
+			// for (int i = 0; i < this.nbItems; i++)
+			// System.out.println(occurences[i].getValue());
 
 			solver.printStatistics();
 			solver.showSolutions();
