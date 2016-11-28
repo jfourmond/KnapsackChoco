@@ -38,6 +38,8 @@ public class KnapsackSolverExistingConstraint extends KnapsackSolver {
 			
 			System.out.println("Profit : " + profitSum.getValue());
 			System.out.println("Weight : " + weightSum.getValue());
+			
+			System.out.println(solver.getBestSolutionValue());
 		}
 	}
 }
