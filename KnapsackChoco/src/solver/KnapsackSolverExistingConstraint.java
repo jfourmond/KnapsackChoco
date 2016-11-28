@@ -1,9 +1,6 @@
 package solver;
 
-import java.util.List;
-
 import org.chocosolver.solver.Model;
-import org.chocosolver.solver.Solution;
 import org.chocosolver.solver.Solver;
 import org.chocosolver.solver.variables.IntVar;
 
@@ -21,19 +18,20 @@ public class KnapsackSolverExistingConstraint extends KnapsackSolver {
 		// 1. Modelling part
 		model = new Model("KNAPSACK PROBLEM WITH EXISTING CONSTRAINT");
 
-		IntVar[] occurences = new IntVar[this.nbItems];
+		IntVar[] occurences = new IntVar[nbItems];
 		for (int i = 0; i < this.nbItems; i++) {
 			occurences[i] = model.intVar(0, 1);
 		}
 
-		IntVar weightSum = model.intVar(0, this.capacity, true);
+		IntVar weightSum = model.intVar(0, capacity, true);
 		IntVar profitSum = model.intVar(0, MAX);
 
 		model.knapsack(occurences, weightSum, profitSum, this.weights, this.profits).post();
-
+		model.setObjective(Model.MAXIMIZE, profitSum);
+		
 		// 2. Solving part
 		Solver solver = model.getSolver();
-		/*
+		
 		while (solver.solve()) {
 			solver.printStatistics();
 			solver.showSolutions();
@@ -41,15 +39,5 @@ public class KnapsackSolverExistingConstraint extends KnapsackSolver {
 			System.out.println("Profit : " + profitSum.getValue());
 			System.out.println("Weight : " + weightSum.getValue());
 		}
-		*/
-		
-		// Optimise independently two variables using the Pareto optimizer
-		List<Solution> solutions = solver.findAllOptimalSolutions(profitSum, Model.MAXIMIZE);
-		for (Solution solution : solutions) {
-			System.out.println("Profit : " + profitSum.getValue());
-			System.out.println("Weight : " + weightSum.getValue());
-		}
-		System.out.println("There are "+solutions.size()+" solutions");
-
 	}
 }
