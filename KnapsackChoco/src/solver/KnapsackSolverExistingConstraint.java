@@ -1,6 +1,9 @@
 package solver;
 
+import java.util.List;
+
 import org.chocosolver.solver.Model;
+import org.chocosolver.solver.Solution;
 import org.chocosolver.solver.Solver;
 import org.chocosolver.solver.variables.IntVar;
 
@@ -30,18 +33,23 @@ public class KnapsackSolverExistingConstraint extends KnapsackSolver {
 
 		// 2. Solving part
 		Solver solver = model.getSolver();
-
-		// if (solver.solve()) {
+		/*
 		while (solver.solve()) {
-
-			// for (int i = 0; i < this.nbItems; i++)
-			// System.out.println(occurences[i].getValue());
-
 			solver.printStatistics();
 			solver.showSolutions();
-
+			
 			System.out.println("Profit : " + profitSum.getValue());
 			System.out.println("Weight : " + weightSum.getValue());
 		}
+		*/
+		
+		// Optimise independently two variables using the Pareto optimizer
+		List<Solution> solutions = solver.findAllOptimalSolutions(profitSum, Model.MAXIMIZE);
+		for (Solution solution : solutions) {
+			System.out.println("Profit : " + profitSum.getValue());
+			System.out.println("Weight : " + weightSum.getValue());
+		}
+		System.out.println("There are "+solutions.size()+" solutions");
+
 	}
 }

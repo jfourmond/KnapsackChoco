@@ -19,8 +19,8 @@ public class Knapsack {
 			// p02
 			// Max profit : 51
 			// Max poids : 26
-			// data = new DataReader("data/p02/p02_w.txt", "data/p02/p02_p.txt",
-			// "data/p02/p02_c.txt");
+			data = new DataReader("data/p02/p02_w.txt", "data/p02/p02_p.txt",
+			 "data/p02/p02_c.txt");
 
 			// p03
 			// Max profit : 150
@@ -57,7 +57,7 @@ public class Knapsack {
 			// p08
 			// Max profit : 13 549 094
 			// Max poids : 6 402 560
-			data = new DataReader("data/p08/p08_w.txt", "data/p08/p08_p.txt", "data/p08/p08_c.txt");
+			// data = new DataReader("data/p08/p08_w.txt", "data/p08/p08_p.txt", "data/p08/p08_c.txt");
 
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -66,29 +66,29 @@ public class Knapsack {
 		}
 
 		System.out.println("\nWith KnapsackSolverInputOrderUBSearch");
-		KnapsackSolver solver = new KnapsackSolverInputOrderUBSearch(data.getNbItems(), data.getCapacity(),
+		KnapsackSolver solver1 = new KnapsackSolverInputOrderUBSearch(data.getNbItems(), data.getCapacity(),
 				data.getWeightsTab(), data.getProfitsTab());
-		// solver.solve();
+		// solver1.solve();
 
 		System.out.println("\nWith KnapsackSolverDefaultStrategy");
 		KnapsackSolver solver2 = new KnapsackSolverDefaultStrategy(data.getNbItems(), data.getCapacity(),
 				data.getWeightsTab(), data.getProfitsTab());
-//		solver2.solve();
+		// solver2.solve();
 
 		System.out.println("\nWith KnapsackSolverExistingConstraint");
 		KnapsackSolver solver3 = new KnapsackSolverExistingConstraint(data.getNbItems(), data.getCapacity(),
 				data.getWeightsTab(), data.getProfitsTab());
-//		 solver3.solve();
+		solver3.solve();
 
 		System.out.println("\nWith KnapsackSolverActivityBasedSearch");
 		KnapsackSolver solver4 = new KnapsackSolverActivityBasedSearch(data.getNbItems(), data.getCapacity(),
 				data.getWeightsTab(), data.getProfitsTab());
-//		 solver4.solve();
+		// solver4.solve();
 
 		System.out.println("\nWith KnapsackSolverMinDomLBSearch");
 		KnapsackSolver solver5 = new KnapsackSolverMinDomLBSearch(data.getNbItems(), data.getCapacity(),
 				data.getWeightsTab(), data.getProfitsTab());
-		 solver5.solve();
+		// solver5.solve();
 	}
 
 }

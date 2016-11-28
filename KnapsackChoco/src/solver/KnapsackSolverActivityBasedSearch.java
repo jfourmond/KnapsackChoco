@@ -59,5 +59,4 @@ public class KnapsackSolverActivityBasedSearch extends KnapsackSolver {
 			System.out.println("Weight : " + weight.getValue());
 		}
 	}
-
 }
